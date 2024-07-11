@@ -7,6 +7,7 @@
 
 import SwiftUI
 import RealityKit
+import AVFoundation
 
 struct ContentView : View {
     var body: some View {
@@ -19,19 +20,39 @@ struct ARViewContainer: UIViewRepresentable {
     func makeUIView(context: Context) -> ARView {
         
         let arView = ARView(frame: .zero)
-
-        // Create a cube model
-        let mesh = MeshResource.generateBox(size: 0.1, cornerRadius: 0.005)
-        let material = SimpleMaterial(color: .gray, roughness: 0.15, isMetallic: true)
-        let model = ModelEntity(mesh: mesh, materials: [material])
-        model.transform.translation.y = 0.05
-
-        // Create horizontal plane anchor for the content
-        let anchor = AnchorEntity(.plane(.horizontal, classification: .any, minimumBounds: SIMD2<Float>(0.2, 0.2)))
-        anchor.children.append(model)
-
-        // Add the horizontal plane anchor to the scene
-        arView.scene.anchors.append(anchor)
+        
+        let anchor = AnchorEntity(plane: .horizontal)
+        
+        guard let url = Bundle.main.url(forResource: "production ID_3818213", withExtension: "mp4") else {
+            fatalError("Video file was not found!")
+        }
+        
+        let player = AVPlayer(url: url)
+        
+        let material = VideoMaterial(avPlayer: player)
+        
+        material.controller.audioInputMode = .spatial
+        
+        let modelEntity = ModelEntity(mesh: MeshResource.generatePlane(width: 0.5, depth: 0.5), materials: [material])
+        
+        modelEntity.transform.rotation = simd_quatf(angle: .pi / 2, axis: [1, 0, 0])
+        
+        player.play()
+        
+        anchor.addChild(modelEntity)
+        
+        arView.scene.addAnchor(anchor)
+        
+        do {
+                   try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
+                   try AVAudioSession.sharedInstance().setActive(true)
+               } catch {
+                   print("Failed to set audio session category.")
+               }
+        
+        let tapGesture = UITapGestureRecognizer(target: context.coordinator, action: #selector(context.coordinator.handleTap))
+                arView.addGestureRecognizer(tapGesture)
+                context.coordinator.player = player
 
         return arView
         
@@ -39,8 +60,12 @@ struct ARViewContainer: UIViewRepresentable {
     
     func updateUIView(_ uiView: ARView, context: Context) {}
     
+    func makeCoordinator() -> Coordinator {
+        Coordinator()
+    }
+    
 }
 
-#Preview {
-    ContentView()
-}
+//#Preview {
+//    ContentView()
+//}

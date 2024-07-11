@@ -11,6 +11,8 @@
 		F3B879932C3FC44A00CD8A48 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B879922C3FC44A00CD8A48 /* ContentView.swift */; };
 		F3B879952C3FC44C00CD8A48 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F3B879942C3FC44C00CD8A48 /* Assets.xcassets */; };
 		F3B879982C3FC44C00CD8A48 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F3B879972C3FC44C00CD8A48 /* Preview Assets.xcassets */; };
+		F3B8799F2C3FC48200CD8A48 /* production ID_3818213.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = F3B8799E2C3FC48200CD8A48 /* production ID_3818213.mp4 */; };
+		F3B879A12C3FC8AF00CD8A48 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B879A02C3FC8AF00CD8A48 /* Coordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +21,8 @@
 		F3B879922C3FC44A00CD8A48 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		F3B879942C3FC44C00CD8A48 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F3B879972C3FC44C00CD8A48 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		F3B8799E2C3FC48200CD8A48 /* production ID_3818213.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "production ID_3818213.mp4"; sourceTree = "<group>"; };
+		F3B879A02C3FC8AF00CD8A48 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,8 +57,10 @@
 			children = (
 				F3B879902C3FC44A00CD8A48 /* AppDelegate.swift */,
 				F3B879922C3FC44A00CD8A48 /* ContentView.swift */,
+				F3B8799E2C3FC48200CD8A48 /* production ID_3818213.mp4 */,
 				F3B879942C3FC44C00CD8A48 /* Assets.xcassets */,
 				F3B879962C3FC44C00CD8A48 /* Preview Content */,
+				F3B879A02C3FC8AF00CD8A48 /* Coordinator.swift */,
 			);
 			path = "AR-Video";
 			sourceTree = "<group>";
@@ -126,6 +132,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F3B879982C3FC44C00CD8A48 /* Preview Assets.xcassets in Resources */,
+				F3B8799F2C3FC48200CD8A48 /* production ID_3818213.mp4 in Resources */,
 				F3B879952C3FC44C00CD8A48 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -139,6 +146,7 @@
 			files = (
 				F3B879932C3FC44A00CD8A48 /* ContentView.swift in Sources */,
 				F3B879912C3FC44A00CD8A48 /* AppDelegate.swift in Sources */,
+				F3B879A12C3FC8AF00CD8A48 /* Coordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
